@@ -3,7 +3,7 @@ import {host} from "./config";
 
 
 export function getEvent(token, id){
-  return fetch(`http://${host}:8000/api/events/${id}`, {
+  return fetch(`${host}/api/events/${id}`, {
     headers: {
       'Content-Type': 'application/json',
       'Authorization': `Token ${token}`
@@ -14,7 +14,7 @@ export function getEvent(token, id){
 
 
 export function placeBet(token, eventId, score1, score2){
-  return fetch(`http://${host}:8000/api/bets/place_bet/`, {
+  return fetch(`${host}/api/bets/place_bet/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export function placeBet(token, eventId, score1, score2){
 
 
 export function AddEvent(token, eventData){
-  return fetch(`http://${host}:8000/api/events/`, {
+  return fetch(`${host}/api/events/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

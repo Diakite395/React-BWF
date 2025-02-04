@@ -2,17 +2,17 @@ import { status } from "../utils";
 import {host} from "./config";
 
 export function getGroups(){
-  return fetch(`http://${host}:8000/api/groups/`)
+  return fetch(`${host}/api/groups/`)
   .then(status).catch(e => console.log(e));
 };
 
 export function getGroup(id){
-  return fetch(`http://${host}:8000/api/groups/${id}`)
+  return fetch(`${host}/api/groups/${id}`)
   .then(status).catch(e => console.log(e));
 };
 
 export function joinGroup(data){
-  return fetch(`http://${host}:8000/api/members/join/`, {
+  return fetch(`${host}/api/members/join/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ export function joinGroup(data){
 };
 
 export function leaveGroup(data){
-  return fetch(`http://${host}:8000/api/members/leave/`, {
+  return fetch(`${host}/api/members/leave/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -34,7 +34,7 @@ export function leaveGroup(data){
 };
 
 export function postComment(token, user, group, description){
-  return fetch(`http://${host}:8000/api/comment/`, {
+  return fetch(`${host}/api/comment/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

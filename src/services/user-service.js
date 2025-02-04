@@ -3,7 +3,7 @@ import {host} from "./config";
 
 
 export async function auth(userData){
-  return await fetch(`http://${host}:8000/api/authenticate/`, {
+  return await fetch(`${host}/api/authenticate/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -14,7 +14,7 @@ export async function auth(userData){
 
 
 export async function register(userData){
-  return await fetch(`http://${host}:8000/api/user/`, {
+  return await fetch(`${host}/api/user/`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ export async function register(userData){
 
 
 export async function changePassword(userID, token, data){
-  return await fetch(`http://${host}:8000/api/user/${userID}/change_pass/`, {
+  return await fetch(`${host}/api/user/${userID}/change_pass/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export async function changePassword(userID, token, data){
 
 
 export async function uploadAvatar(profileID, data, token){
-  return await fetch(`http://${host}:8000/api/profile/${profileID}/`, {
+  return await fetch(`${host}/api/profile/${profileID}/`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
