@@ -9,6 +9,7 @@ import { joinGroup, leaveGroup, postComment } from '../../services/group-service
 import { useAuth } from '../../hooks/useAuth';
 import Comments from '../comments/comments';
 import EventList from '../events/event-list';
+import { host } from '../../services/config';
 
 
 function GroupDetails() {
@@ -109,9 +110,9 @@ function GroupDetails() {
                 return <div key={member.id} className='usersCont'>
                   <div className='users'>
                     {member.user.profile?.image ?
-                      <Image src={'http://127.0.0.1:8000'+member.user.profile.image} roundedCircle fluid width={50}/>
+                      <Image src={host+member.user.profile.image} roundedCircle fluid width={50}/>
                       :
-                      <Image src='http://127.0.0.1:8000/mediafiles/avatars/avatar.png' roundedCircle fluid width={50}/>
+                      <Image src={`${host}/mediafiles/avatars/avatar.png`} roundedCircle fluid width={50}/>
                     }
                     <h4>{member.user.username}</h4>
                   </div>

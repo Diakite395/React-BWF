@@ -7,6 +7,7 @@ import { useAuth } from "../../hooks/useAuth";
 import { useEffect, useState } from "react";
 import { Form, Image, Button } from "react-bootstrap";
 import { placeBet } from "../../services/event-services";
+import { host } from "../../services/config";
 
 
 export default function Event(){
@@ -88,9 +89,9 @@ export default function Event(){
           <div key={bet.id} className='bet'>
             <div className='users'>
               {bet.user.profile?.image ?
-                <Image src={'http://127.0.0.1:8000'+bet.user.profile.image} roundedCircle fluid width={50}/>
+                <Image src={host+bet.user.profile.image} roundedCircle fluid width={50}/>
                 :
-                <Image src='http://127.0.0.1:8000/mediafiles/avatars/avatar.png' roundedCircle fluid width={50}/>
+                <Image src={`${host}/mediafiles/avatars/avatar.png`} roundedCircle fluid width={50}/>
               }
               <h4>{bet.user.username}</h4>
             </div>
@@ -102,19 +103,23 @@ export default function Event(){
       <hr/>
       <Form>
         <Form.Group controlId='number'>
-          <Form.Label>Username</Form.Label>
+          <Form.Label>{event?.team1}</Form.Label>
           <Form.Control style={{weight:"90px"}} type='number' placeholder={0}
           onChange={e => (setScore1(e.target.value))}/>
         </Form.Group>
 
         <Form.Group controlId='number'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>{event?.team2}</Form.Label>
           <Form.Control type='number' placeholder={0}
           onChange={e => (setScore2(e.target.value))}/>
         </Form.Group>
-        <br/>
-        <Button onClick={sendBet} disabled={!score1 || !score2}>Place Bet</Button>
       </Form>
+      <Button onClick={sendBet} disabled={!score1 || !score2}>Place Bet</Button>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <br/>
     </>
   )
 }

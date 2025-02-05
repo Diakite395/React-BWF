@@ -2,6 +2,7 @@ import React from 'react';
 import { Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { host } from '../../services/config';
 
 
 export default function User({user}) {
@@ -10,9 +11,9 @@ export default function User({user}) {
     <>
       <Link to="/account">
       {user.profile?.image ?
-        <Image src={'http://127.0.0.1:8000'+user.profile.image} roundedCircle fluid width={80}/>
+        <Image src={host+user.profile.image} roundedCircle fluid width={80}/>
         :
-        <Image src='http://127.0.0.1:8000/mediafiles/avatars/avatar.png' roundedCircle fluid width={80}/>
+        <Image src={`${host}/mediafiles/avatars/avatar.png`} roundedCircle fluid width={80}/>
       }
       </Link>
       <h3>{user.username}</h3>
